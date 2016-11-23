@@ -39,5 +39,5 @@ if (is_array($_GET) && count($_GET) > 0 && isset($_GET['action']) && function_ex
 } else {
     header("HTTP/1.1 404 Not Found");
     header('Content-Type: text/html; charset=utf-8');
-    exit('<!doctype html><title>404 Sayfa Bulunamadı!</title><h1 style="text-align: center">404 Sayfa Bulunamadı!</h1><hr/><p style="text-align: center">Sonsürat Extre Uygulaması</p>');
+    exit('<!doctype html><title>404!</title><h1 style="text-align: center">404!</h1><hr/>');
 }
