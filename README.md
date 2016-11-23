@@ -1,2 +1,3 @@
 # php-skeleton-project
-An empty project that can bu built as an one fat phar with phing. 
+An empty project that can bu built as an one fat phar with phing. Added composer and phing config files, apache configuration for viewing the web side.
+
