@@ -10,3 +10,4 @@ An empty project that can bu built as an one fat phar with phing.
 
 ## TODOS:
  * NGINX and IIS configurations needed.
+
