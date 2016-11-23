@@ -7,3 +7,5 @@ An empty project that can bu built as an one fat phar with phing.
 * A simple AJAX call structure added.
 * Cli and Web side availability added. 
 
+TODOS:
+ * NGINX and IIS configurations needed.
