@@ -1,0 +1,5 @@
+RewriteEngine On 
+RewriteCond %{REQUEST_URI} php-skeleton.phar/$
+RewriteRule ^(.*)$ php-skeleton.phar/src/main/webapp/index.php
+RewriteCond %{REQUEST_URI} !php-skeleton.phar
+RewriteRule ^(.*)$ php-skeleton.phar/src/main/webapp/$1
