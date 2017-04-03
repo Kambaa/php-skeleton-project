@@ -1,7 +1,15 @@
 {
-  "require": {
-  },
-  "autoload": {
+  "name": "Kambaa/php-skeleton-project",
+  "description": "A skeleton project ready to compile with phar(using phing).",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Yusuf Gündüz",
+      "email": "yusuf.gunduz@gmail.com"
+    }
+  ],
+   "autoload": {
     "psr-4": {
       "AppSkeleton\\": "src\\main\\php\\"
     }
