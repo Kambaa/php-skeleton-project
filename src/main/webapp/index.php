@@ -1,9 +1,4 @@
 <?php
-/**
- * User: Kambaa
- * Date: 29.06.2016
- * Time: 00:16
- */
 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL ^ E_NOTICE);

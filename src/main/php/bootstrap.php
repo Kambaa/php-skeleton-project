@@ -1,10 +1,4 @@
 <?php
-/**
- * User: Kambaa
- * Date: 12.07.2016
- * Time: 23:06
- */
-
 
 require_once "vendor/autoload.php"; 
 

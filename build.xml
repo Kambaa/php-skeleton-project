@@ -3,19 +3,41 @@
 
     <property name="message" value="Welcome, creating phar file..."/>
     <property name="phar.file.name" value="php-skeleton"/>
+    <property name="target.dir" value="target/"/>
+
 
     <target name="init">
         <echo msg="${message}"/>
-        <phingcall target="createPhar"></phingcall>
+        <phingcall target="makeTargetDir"/>
+        <phingcall target="lint"/>
+        <phingcall target="createPhar"/>
     </target>
 
+    <!-- Generates target/ directory-->
+    <target name="makeTargetDir">
+        <mkdir dir="${target.dir}"/>
+    </target>
+
+    <!--Lints php files in src/ directory-->
+    <target name="lint">
+        <phplint>
+            <fileset dir="src">
+                <include name="**/*.php"/>
+            </fileset>
+        </phplint>
+    </target>
+
+    <!--Creates Phar Archive-->
     <target name="createPhar">
         <pharpackage
                 destfile="./target/${phar.file.name}.phar"
                 basedir="./"
                 webstub="stub.php"
                 clistub="src/main/webapp/index.php">
-            <fileset refid="pharBuild"/>
+            <fileset id="pharBuild" dir="./">
+                <include name="src/"/>
+                <include name="vendor/"/>
+            </fileset>
             <metadata>
                 <element name="version" value="1.0.0"/>
                 <element name="authors">
@@ -26,10 +48,5 @@
             </metadata>
         </pharpackage>
     </target>
-
-    <fileset id="pharBuild" dir="./">
-        <include name="src/"/>
-        <include name="vendor/"/>
-    </fileset>
 
 </project>

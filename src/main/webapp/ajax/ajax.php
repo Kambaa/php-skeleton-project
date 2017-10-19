@@ -1,9 +1,4 @@
 <?php
-/**
- * User: Kambaa
- * Date: 8/8/16
- * Time: 1:53 PM
- */
 
 require_once "src/main/php/bootstrap.php";
 header('Content-Type: application/json; charset=utf-8');
