@@ -47,6 +47,8 @@ HTACCESS;
                     ],
                 ],
                 /*
+                 * https://logging.apache.org/log4php/docs/appenders/pdo.html
+                 *
                  * First create a table named `logs`.
                  *
                  * CREATE TABLE logs (
