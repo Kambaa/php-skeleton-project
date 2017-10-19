@@ -6,23 +6,6 @@ namespace AppSkeleton\Utils;
 class Constants
 {
     /**
-     * htaccess code
-     */
-    const HTACCESS_CODE = <<<HTACCESS
-Options +Indexes +FollowSymLinks
-<files *.ini>
-order deny,allow
-deny from all
-</files>
-RewriteEngine On
-RewriteCond %{REQUEST_URI} licence-server.phar/src/main/webapp/$
-RewriteRule ^(.*)$ licence-server.phar/src/main/webapp/index.php
-RewriteCond %{REQUEST_URI} !licence-server.phar
-RewriteRule ^(.*)$ licence-server.phar/src/main/webapp/$1
-RewriteCond %{REQUEST_URI} licence-server.phar/src/main/webapp/$
-HTACCESS;
-
-    /**
      * Returns LOG4PHP configuration array
      * @return array
      */
