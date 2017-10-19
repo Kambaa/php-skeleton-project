@@ -1,36 +1,24 @@
 <?php
 
+use AppSkeleton\Utils\Constants;
+
 require_once "src/main/php/bootstrap.php";
 header('Content-Type: application/json; charset=utf-8');
 
-
-function ret($data, $print = true)
-{
-    $resultData = [
-        "result" => $data['result'],
-        "description" => $data['description'],
-        "data" => $data['data'],
-        'html' => $data['html']
-    ];
-    $result = json_encode($resultData, JSON_UNESCAPED_UNICODE);
-    return $print == true ? print($result) : $resultData;
+if (!defined("AJAX_PAGE_PREFIX")) {
+    define("AJAX_PAGE_PREFIX", 'ajax_');
 }
 
-function returnError($str = null, $print = true)
+function ajax_test($param)
 {
-    $resultArr = ["result" => false];
-    if (!empty($str)) {
-        $resultArr["description"] = $str;
-    }
-    $result = json_encode($resultArr, JSON_UNESCAPED_UNICODE);
-    return $print == true ? print($result) : $resultArr;
+    Constants::returnData(['result' => true, 'description' => 'test operation successfull', 'data' => $param]);
 }
 
 
-if (is_array($_GET) && count($_GET) > 0 && isset($_GET['action']) && function_exists($_GET["action"])) {
-    call_user_func($_GET["action"], $_GET);
-} else if (is_array($_POST) && count($_POST) > 0 && isset($_POST['action']) && function_exists($_POST["action"])) {
-    call_user_func($_POST["action"], $_POST);
+if (is_array($_GET) && count($_GET) > 0 && isset($_GET['action']) && function_exists(AJAX_PAGE_PREFIX . $_GET["action"])) {
+    call_user_func(AJAX_PAGE_PREFIX . $_GET["action"], $_GET);
+} else if (is_array($_POST) && count($_POST) > 0 && isset($_POST['action']) && function_exists(AJAX_PAGE_PREFIX . $_POST["action"])) {
+    call_user_func(AJAX_PAGE_PREFIX . $_POST["action"], $_POST);
 } else {
     header("HTTP/1.1 404 Not Found");
     header('Content-Type: text/html; charset=utf-8');
